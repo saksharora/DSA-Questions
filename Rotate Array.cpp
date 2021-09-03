@@ -1,32 +1,18 @@
-// Online C++ compiler to run C++ program online
-#include <iostream>
-#include<algorithm>
-using namespace std;
-
-
-int main() {
-    int n;
-    int a[n];
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-    }
-    for(int i=0;i<n-1;i++){
-         int min=i;
-        for(int j=i+1;j<n;j++){
-            if(a[j]<a[min]){
-                min=j;
-            }
+class Solution {
+public:
+void reverse(vector<int> &num, int low, int high){
+while(low < high){
+swap(num[low], num[high]);
+            low++;
+            high--;
         }
-        int temp=a[j];
-        a[j]=a[min];
-        a[min]=temp;
     }
-    for(int i=0;i<n;i++){
-        cout<<a[i];
+void rotate(vector<int>& nums, int k) {
+int n = (int)nums.size();
+        k = k%n;
+reverse(nums, 0, n-k-1);
+reverse(nums, n-k, n-1);
+reverse(nums, 0, n-1);
     }
-    // Write C++ code here
-    
-
-    return 0;
-}
+};
 
